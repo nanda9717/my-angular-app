@@ -6,6 +6,7 @@
         <li>Salary: {{ data?.salary | currency }} | {{ data?.salary | currency : 'INR' }} | {{ data?.salary | currency: 'INR' : 'INR' }}</li>
         <li>Created On: {{data?.createdOn | date : 'MMMM d, y'}} | {{data?.createdOn | date : 'MMM d, y'}} | {{data?.createdOn | date : 'EEEE, MMM d, y'}}</li>
     </ul>
+    <p>Fruits({{fruits | customCount}}) : {{fruits}}</p>
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
         <div class="row">
             <div class="col-md-6 mb-3">
@@ -32,9 +33,9 @@
                 <span class="error" *ngIf="contactForm.controls.salary.errors?.required">Please Enter Salary</span>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" class="form-control" formControlName="date" id="date" placeholder="Please Enter Date" />
-                <span class="error" *ngIf="contactForm.controls.date.errors?.required">Please Enter Date</span>
+                <label for="createdOn" class="form-label">Created On</label>
+                <input type="date" class="form-control" formControlName="createdOn" id="createdOn" placeholder="Please Enter Date" />
+                <span class="error" *ngIf="contactForm.controls.createdOn.errors?.required">Please Enter Date</span>
             </div>
         </div>
         <button type="submit" [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>

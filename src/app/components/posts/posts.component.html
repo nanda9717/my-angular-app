@@ -1,1 +1,23 @@
-<p>posts works!</p>
+<div class="row">
+    <div class="row g-1">
+      <div class="col-sm-6 col-md-10"><h2>Post Listing</h2></div>
+      <div class="col-sm-6 col-md-2"><button type="submit" (click)="addNewPost()" class="btn btn-primary">Add Post</button></div>
+    </div>
+    <span class="success" *ngIf="successMessage">{{successMessage}}</span>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of posts">
+            <th scope="row">{{post.id}}</th>
+            <td>{{post.title}}</td>
+            <td><a [routerLink]="['/post-update', post.id]">Update</a> | <a (click)="handleDelete(post.id)" href="javascript:void(0)">Delete</a> | <a [routerLink]="['/post', post.id]">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

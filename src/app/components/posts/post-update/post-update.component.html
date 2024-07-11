@@ -1,0 +1,15 @@
+<div class="row">
+    <h2>Update Post</h2>
+    <a routerLink="/posts">Back</a>
+    <form [formGroup]="updateForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" formControlName="title" id="title" placeholder="Please Enter Title">
+        </div>
+        <div class="mb-3">
+            <label for="body" class="form-label">Description</label>
+            <textarea class="form-control" formControlName="body" id="body" rows="3"></textarea>
+        </div>
+        <button type="submit" [disabled]="!updateForm.valid" class="btn btn-primary">Update</button>
+    </form>
+</div>

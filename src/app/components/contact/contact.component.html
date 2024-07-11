@@ -1,1 +1,42 @@
-<p>contact works!</p>
+<div class="row">
+    <ul>
+        <li>Name: {{data?.name}}</li>
+        <li>Email: {{data?.email}}</li>
+        <li>Age: {{data?.age}}</li>
+        <li>Salary: {{ data?.salary | currency }} | {{ data?.salary | currency : 'INR' }} | {{ data?.salary | currency: 'INR' : 'INR' }}</li>
+        <li>Created On: {{data?.createdOn | date : 'MMMM d, y'}} | {{data?.createdOn | date : 'MMM d, y'}} | {{data?.createdOn | date : 'EEEE, MMM d, y'}}</li>
+    </ul>
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName="name" id="name" placeholder="Please Enter Name">
+                <span class="error" *ngIf="contactForm.controls.name.errors?.required">Please Enter Name</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="email" placeholder="Please Enter Email" />
+                <span class="error" *ngIf="contactForm.controls.email.errors?.required">Please Enter Email</span>
+                <span class="error" *ngIf="contactForm.controls.email.errors?.email">Please Enter Valid Email</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="text" class="form-control" formControlName="age" id="age" placeholder="Please Enter Age" />
+                <span class="error" *ngIf="contactForm.controls.age.errors?.required">Please Enter Age</span>
+                <span class="error" *ngIf="contactForm.controls.age.errors?.pattern">Only numeric value is allowed</span>
+                <span class="error" *ngIf="contactForm.controls.age.errors?.min">Age must be minumum 18</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="salary" class="form-label">Salary</label>
+                <input type="text" class="form-control" formControlName="salary" id="salary" placeholder="Please Enter Salary" />
+                <span class="error" *ngIf="contactForm.controls.salary.errors?.required">Please Enter Salary</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" formControlName="date" id="date" placeholder="Please Enter Date" />
+                <span class="error" *ngIf="contactForm.controls.date.errors?.required">Please Enter Date</span>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>
+    </form>
+</div>

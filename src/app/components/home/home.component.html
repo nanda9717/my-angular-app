@@ -1,1 +1,27 @@
 <p>home works!</p>
+<input type="text" [(ngModel)]="title">
+<h3>{{ title }}</h3>
+<h2>{{ title | uppercase }}</h2>
+<h2>{{ title | lowercase }}</h2>
+<h2>{{ title | titlecase }}</h2>
+
+<h2>{{ ['a','b','c','d','e'] | slice:2 }}</h2>
+<h2>{{ ['a','b','c','d','e'] | slice:1:4 }}</h2>
+<h2>{{ 'Laptop Charger' | slice:3:6 }}</h2>
+<h2>{{ 'Laptop Charger' | slice:-4 }}</h2>
+<h2>{{ 'Laptop Charger' | slice:-4:-2 }}</h2>
+
+<h2> {{ 25000 | number }}</h2>
+<h2> {{ 25000 | number:'.3' }}</h2>
+
+<h2>{{ 0.1 | percent }}</h2>
+<h2>{{ 0.1 | percent:'.2'  }}</h2>
+
+<h2>{{ 25000 | currency }}</h2>
+<h2>{{ 25000 | currency:'INR' }}</h2>
+<h2>{{ 25000 | currency:'INR':'code' }}</h2>
+<h2>{{ 25000 | currency:'CAD' }}</h2>
+<h2>{{ 25000 | currency:'CAD':'code' }}</h2>
+
+<h2>{{ "6/2/2018" | date }}</h2>
+<h2>{{ "9/2/2020, 11:30:45 AM" | date:'medium' }}</h2>

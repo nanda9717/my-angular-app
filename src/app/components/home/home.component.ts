@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
- title = "Angular works"
+ title = "Angular works";
+ show = true;
 
  constructor(){
   console.log("constructor")
@@ -22,6 +23,10 @@ export class HomeComponent {
 
  ngDoCheck(){
   console.log("====ngDoCheck===")
+ }
+
+ ngOnChanges(){
+  console.log("====ngOnChanges===")
  }
 
  ngAfterContentInit(){
